@@ -1,22 +1,56 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+const Rank = () => import('components/rank/rank')
+const Recommend = () => import('components/recommend/recommend')
+const Singer = () => import('components/singer/singer')
+const Search = () => import('components/search/search')
+const SingerDetail = () => import('components/singer-detail/singer-detail')
+const Disc = () => import('components/disc/disc')
+const TopList = () => import('components/top-list/top-list')
+const UserCenter = () => import('components/user-center/user-center')
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/recommend'
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/recommend',
+    component: Recommend,
+    children: [{
+      path: ':id',
+      component: Disc
+    }]
+  },
+  {
+    path: '/singer',
+    component: Singer,
+    children: [{
+      path: ':id',
+      component: SingerDetail
+    }]
+  },
+  {
+    path: '/rank',
+    component: Rank,
+    children: [{
+      path: ':id',
+      component: TopList
+    }]
+  },
+  {
+    path: '/search',
+    component: Search,
+    children: [{
+      path: ':id',
+      component: SingerDetail
+    }]
+  },
+  {
+    path: '/user',
+    component: UserCenter
   }
 ]
 

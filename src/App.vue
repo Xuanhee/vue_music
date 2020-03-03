@@ -1,32 +1,34 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <m-header></m-header>
+    <m-tab></m-tab>
+    <!-- 将dom缓存到内存中 -->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    <player></player>
   </div>
 </template>
 
-<style>
+<script>
+import MHeader from './components/m-header/m-header'
+import MTab from './components/tab/tab'
+import Player from './components/player/player'
+export default {
+  // 注册组件 m-header
+  components: {
+    MHeader,
+    MTab,
+    Player
+  }
+}
+</script>
+
+<style lang="stylus">
+// 引入字体颜色规范文件
+@import 'assets/stylus/variable.styl';
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+  color: $color-theme;
 }
 </style>
