@@ -82,6 +82,26 @@
               <i class="icon-next" @click="next"></i>
             </div>
             <div class="icon i-right">
+              <a @click="showConfirm" style="display:inline-block" ref="download">
+                <svg
+                  t="1584603004013"
+                  class="icon icon-down"
+                  viewBox="0 0 1024 1024"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  p-id="2381"
+                  width="200"
+                  height="200"
+                >
+                  <path
+                    d="M832 768v64H192v-64H128v128h768v-128zM822.624 438.624l-45.248-45.248L544 626.752V128h-64v498.752l-233.376-233.376-45.248 45.248L512 749.248z"
+                    fill="#ffcd32"
+                    p-id="2382"
+                  />
+                </svg>
+              </a>
+            </div>
+            <div class="icon i-right">
               <i :class="getFavoriteIcon(currentSong)" @click="toggleFavorite(currentSong)"></i>
             </div>
           </div>
@@ -125,6 +145,7 @@
       @ended="end"
       @pause="paused"
     ></audio>
+    <confirm title="您确定要下载吗" @confirm="downloadFile" ref="confirm"></confirm>
   </div>
 </template>
 <script>
@@ -136,6 +157,7 @@ import ProgressBar from 'base/progress-bar/progress-bar'
 import ProgressCircle from 'base/progress-circle/progress-circle'
 import Scroll from 'base/scroll/scroll'
 import Playlist from 'components/playlist/playlist'
+import Confirm from 'base/confirm/confirm'
 import { playMode } from 'assets/js/config'
 // 引入歌词解析组件
 import Lyric from 'lyric-parser'
@@ -534,6 +556,37 @@ export default {
         this.currentLyric.seek(currentTime * 1000)
       }
     },
+    // 点击下载弹出确认框
+    showConfirm () {
+      this.$refs.confirm.show()
+    },
+    // 点击a下载图标下载歌曲
+    downloadFile () {
+      // const iframe = document.createElement('iframe')
+      // iframe.style.visibility = 'hidden'
+      // document.body.appendChild(iframe)
+      // iframe.src = this.currentSong.url
+      const request = new XMLHttpRequest()
+      request.open('get', this.currentSong.url, true)
+      request.responseType = 'blob'
+      // 请求完成之后设置url 和download
+      request.onload = () => {
+        const response = request.response
+        if (response) {
+          // downloadJs(new Blob([response], { type: 'audio/mp3' }), this.currentSong.name, 'audio/mp3')
+          // console.log(response)
+          const url = window.URL.createObjectURL(new Blob([response], { type: 'audio/mp3' }))
+          const a = document.createElement('a')
+          console.log(a)
+          a.href = url
+          a.download = this.currentSong.name
+          a.click()
+          a.remove()
+          window.URL.revokeObjectURL(url)
+        }
+      }
+      request.send()
+    },
     ...mapActions([
       'savaPlayHistory'
     ])
@@ -617,7 +670,8 @@ export default {
     ProgressBar,
     ProgressCircle,
     Scroll,
-    Playlist
+    Playlist,
+    Confirm
   }
 }
 </script>
@@ -867,6 +921,11 @@ export default {
 
         .i-right {
           text-align: left;
+
+          .icon-down {
+            height: 30px;
+            width: 30px;
+          }
         }
 
         .icon-favorite {

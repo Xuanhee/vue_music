@@ -9,10 +9,10 @@ function resolve(dir) {
 }
 module.exports = {
   devServer: {
-    open: true,
-    host: '127.0.0.1',
-    port: 8080,
-    https: false,
+    // open: true,
+    // host: '127.0.0.1',
+    // port: 8080,
+    // https: false,
     // // 以上的ip和端口是我们本机的;下面为需要跨域的
     // proxy: { //配置跨域
     //   '/api': {
@@ -36,7 +36,7 @@ module.exports = {
           },
           params: req.query
         }).then((response) => {
-          console.log(response.data)
+          // console.log(response.data)
           res.json(response.data)
         }).catch((e) => {
           console.log(e)
@@ -56,6 +56,7 @@ module.exports = {
           response = response.data
           if (response.code === 0) {
             const slider = []
+            // 通过代理服务器,再向返回拿到轮播图数据
             content = response.focus.data && response.focus.data.content
             // console.log(content)
             if (content) {
@@ -127,6 +128,7 @@ module.exports = {
           },
           params: req.query
         }).then((response) => {
+          // console.log(response.data)
           res.json(response.data)
         }).catch(e => {
           console.log(e)

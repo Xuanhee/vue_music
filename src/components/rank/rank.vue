@@ -42,6 +42,7 @@ export default {
     // 获取排行歌曲列表的方法
     _getTopList () {
       getTopList().then((res) => {
+        console.log(1)
         if (res.code === ERR_OK) {
           this.topList = res.data.topList
         }

@@ -1,8 +1,9 @@
+import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import 'babel-polyfill'
+
 // 引入styl文件
 import './assets/stylus/index.styl'
 import axios from 'axios'

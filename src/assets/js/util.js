@@ -4,7 +4,7 @@ export function shuffle(arr) {
   const _arr = [...arr]
   for (let i = 0; i < _arr.length; i++) {
     // 打乱数组 拿到随机索引
-    const j = getRandomInt(0, i)
+    const j = getRandomInt(0, _arr.length - 1)
     // 对两个数进行兑换
     const a = _arr[i]
     _arr[i] = _arr[j]

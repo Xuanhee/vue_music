@@ -80,7 +80,7 @@ export default {
     this.slider.goToPage(pageIndex, 0, 0)
     this.currentPageIndex = pageIndex
     if (this.autoPlay) {
-      this._play()
+      this._autopaly()
     }
   },
   // 当页面切走时,清空页面中的定时器

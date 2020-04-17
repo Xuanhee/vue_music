@@ -11,7 +11,7 @@ export function addClass(el, className) {
 // 判断元素是否含有className
 export function hasClass(el, className) {
   // 类名的前面和后面是空格
-  const reg = new RegExp(`/^|\\s/${className} /\\s|&/`)
+  const reg = new RegExp(`/^|\\s${className}\\s|&/`)
   return reg.test(el.className)
 }
 
