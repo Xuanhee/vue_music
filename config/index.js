@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-06-21 23:42:49
- * @LastEditTime: 2020-06-23 11:32:21
+ * @LastEditTime: 2020-06-23 16:49:31
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_music\config\index.js
@@ -63,7 +63,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps
