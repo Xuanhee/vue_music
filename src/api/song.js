@@ -11,7 +11,7 @@ const debug = process.env.NODE_ENV !== 'production'
 
 // 抓取歌词
 export function getLyric(mid) {
-  const url = debug ? '/api/getLyric' : 'http://ustbhuangyi.com/music/api/lyric'
+  const url = debug ? '/api/getLyric' : 'http://47.93.26.237.com/music/api/lyric'
   const data = Object.assign({}, commonParams, {
     songmid: mid,
     pcachetime: +new Date(),
