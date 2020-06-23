@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2020-06-21 17:32:28
+ * @LastEditTime: 2020-06-23 11:34:21
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \vue_music\src\api\search.js
+ */
 import jsonp from 'assets/js/jsonp'
 import {
   commonParams,
@@ -16,7 +24,8 @@ export function getHotKey() {
 }
 
 export function search(key, page, zhida, perpage) {
-  const url = debug ? '/api/search' : 'http://ustbhuangyi.com/music/api/search'
+//   const url = debug ? '/api/search' : 'http://ustbhuangyi.com/music/api/search'
+  const url = debug ? '/api/search' : 'http://47.93.26.237/music/api/search'
   const data = Object.assign({}, commonParams, {
     w: key,
     p: page,
@@ -34,7 +43,8 @@ export function search(key, page, zhida, perpage) {
     loginUin: 0,
     remoteplace: 'txt.mqq.all',
     platform: 'yqq.json',
-    needNewCode: 0
+    needNewCode: 0,
+    format: 'json'
   })
   return axios.get(url, {
     params: data

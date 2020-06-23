@@ -1,11 +1,12 @@
 /*
  * @Author: your name
  * @Date: 2020-06-21 17:32:28
- * @LastEditTime: 2020-06-21 21:51:14
+ * @LastEditTime: 2020-06-21 22:49:21
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_music\src\api\config.js
- */ 
+ */
+
 // 配置跨域请求时通用的参数
 // 按需导出
 export const commonParams = {

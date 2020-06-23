@@ -47,7 +47,8 @@ export function getLyric(mid) {
 // }
 
 export function getSongsUrl(songs) {
-  const url = debug ? '/api/getPurlUrl' : 'http://ustbhuangyi.com/music/api/getPurlUrl'
+//   const url = debug ? '/api/getPurlUrl' : 'http://ustbhuangyi.com/music/api/getPurlUrl'
+  const url = debug ? '/api/getPurlUrl' : 'http://47.93.26.237/music/api/getPurlUrl'
 
   const mids = []
   const types = []

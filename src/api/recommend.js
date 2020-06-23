@@ -11,7 +11,7 @@ const debug = process.env.NODE_ENV !== 'production'
 // 发送客户端代理请求获取推荐歌单
 export function getDiscList() {
   // 线上环境地址
-  const url = debug ? '/api/getDiscList' : 'http://ustbhuangyi.com/music/api/getDiscList'
+  const url = debug ? '/api/getDiscList' : 'http://47.93.26.237/music/api/getDiscList'
   // 配置data数据 使用assign函数新增额外数据
   const data = Object.assign({}, commonParams, {
     g_tk: 5381,
@@ -22,7 +22,8 @@ export function getDiscList() {
     sortId: 5,
     categoryId: 10000000,
     rnd: Math.random(),
-    hostUin: 0
+    hostUin: 0,
+    format: 'json'
   })
   // console.log(data)
   // 发送请求
@@ -35,8 +36,8 @@ export function getDiscList() {
 }
 // 向客户端发送请求,获取推荐歌单数据
 export function getCdInfo(disstid) {
-  const url = debug ? '/api/getCdInfo' : 'http://ustbhuangyi.com/music/api/getCdInfo'
-
+//   const url = debug ? '/api/getCdInfo' : 'http://ustbhuangyi.com/music/api/getCdInfo'
+  const url = '/api/getCdInfo'
   const data = Object.assign({}, commonParams, {
     disstid,
     type: 1,
@@ -45,7 +46,8 @@ export function getCdInfo(disstid) {
     onlysong: 0,
     platform: 'yqq',
     hostUin: 0,
-    needNewCode: 0
+    needNewCode: 0,
+    format: 'json'
   })
 
   return axios.get(url, {
@@ -57,7 +59,8 @@ export function getCdInfo(disstid) {
 
 // 发送客户端代理跨域请求 获取轮播图
 export function getRecommend() {
-  const url = debug ? '/api/getRecommend' : 'http://ustbhuangyi.com/music/api/getTopBanner'
+//   const url = debug ? '/api/getRecommend' : 'http://ustbhuangyi.com/music/api/getTopBanner'
+  const url = debug ? '/api/getRecommend' : 'http://47.93.26.237/music/api/getTopBanner'
   // 配置请求的信息
   const data = Object.assign({}, commonParams, {
     g_tk: 5381,
