@@ -112,7 +112,7 @@ apiRoutes.get('/search', csrfProtection, function (req, res) {
   })
 })
 
-app.get('/api/getRecommend', function (req, res) {
+app.get('/api/getTopBanner', function (req, res) {
   console.log(1111)
   const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
   const jumpPrefix = 'https://y.qq.com/n/yqq/album/'

@@ -59,8 +59,7 @@ export function getCdInfo(disstid) {
 
 // 发送客户端代理跨域请求 获取轮播图
 export function getRecommend() {
-//   const url = debug ? '/api/getRecommend' : 'http://ustbhuangyi.com/music/api/getTopBanner'
-  const url = debug ? '/api/getRecommend' : 'http://47.93.26.237/music/api/getTopBanner'
+  const url = debug ? '/api/getTopBanner' : 'http://47.93.26.237/music/api/getTopBanner'
   // 配置请求的信息
   const data = Object.assign({}, commonParams, {
     g_tk: 5381,

@@ -43,7 +43,7 @@ module.exports = {
         })
       })
       // 代理服务器   向qq音乐接口发送请求抓取轮播图数据
-      app.get('/api/getRecommend', function (req, res) {
+      app.get('/api/getTopBanner', function (req, res) {
         const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
         const jumpPrefix = 'https://y.qq.com/n/yqq/album/'
         axios.get(url, {
