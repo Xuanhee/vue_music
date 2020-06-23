@@ -36,8 +36,7 @@ export function getDiscList() {
 }
 // 向客户端发送请求,获取推荐歌单数据
 export function getCdInfo(disstid) {
-//   const url = debug ? '/api/getCdInfo' : 'http://ustbhuangyi.com/music/api/getCdInfo'
-  const url = '/api/getCdInfo'
+  const url = debug ? '/api/getCdInfo' : 'http://47.93.26.237/music/api/getCdInfo'
   const data = Object.assign({}, commonParams, {
     disstid,
     type: 1,
