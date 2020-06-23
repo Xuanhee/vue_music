@@ -209,5 +209,5 @@ module.exports = {
       })
     })
   },
-  publicPath: '/'
+  publicPath: ''
 }
